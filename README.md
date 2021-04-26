@@ -1,10 +1,11 @@
 
 rTLS <img src="https://raw.githubusercontent.com/Antguz/rTLS/master/man/figures/rTLS_logo.png" align="right" alt="" width="120" />
 =============================================================================
-[![DOI](https://zenodo.org/badge/162520913.svg)](https://zenodo.org/badge/latestdoi/162520913)
+[![](https://www.r-pkg.org/badges/version/rTLS)](https://CRAN.R-project.org/package=rTLS)
 [![R build status](https://github.com/Antguz/rTLS/workflows/R-CMD-check/badge.svg)](https://github.com/Antguz/rTLS/actions)
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/Antguz/rTLS)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/rTLS)](https://cran.r-project.org/package=rTLS)
 [![Codecov test coverage](https://codecov.io/gh/Antguz/rTLS/branch/master/graph/badge.svg)](https://codecov.io/gh/Antguz/rTLS?branch=master)
 
 This is an R package to that compiles a series of tools to process and calculate metrics on point clouds derived from Terrestrial Laser Scanners (TLS), also know as Terrestrial-Light Detection and Ranging (T-LiDAR).
@@ -50,7 +51,7 @@ The current development of ___rTLS___ is focused on five major processes applied
 
 ### Installation
 
-You can install the ___rTLS___ using the CRAN platform following (pending)
+You can install the ___rTLS___ using the CRAN platform following
 
 ```
 install.packages("rTLS")
