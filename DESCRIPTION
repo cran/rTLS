@@ -2,7 +2,7 @@ Type: Package
 Package: rTLS
 Title: Tools to Process Point Clouds Derived from Terrestrial Laser
         Scanning
-Version: 0.2.5.1
+Version: 0.2.5.2
 Authors@R: 
     c(person(given = "J. Antonio",
              family = "Guzmán Q.",
@@ -47,11 +47,11 @@ SystemRequirements: GNU make
 ByteCompile: true
 Config/testthat/edition: 3
 NeedsCompilation: yes
-Packaged: 2021-11-26 15:51:08 UTC; antonio
+Packaged: 2021-12-10 17:39:57 UTC; antonio
 Author: J. Antonio Guzmán Q. [cre, aut, ths, cph]
     (<https://orcid.org/0000-0002-0721-148X>),
   Ronny Hernandez [aut] (<https://orcid.org/0000-0001-6225-7096>),
   Arturo Sanchez-Azofeifa [dgs, sad]
     (<https://orcid.org/0000-0001-7768-6600>)
 Repository: CRAN
-Date/Publication: 2021-11-29 09:40:02 UTC
+Date/Publication: 2021-12-10 23:50:02 UTC

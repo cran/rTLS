@@ -1,6 +1,6 @@
-b074eb207ce6588fc57cbaa763b6c8c7 *DESCRIPTION
+8d855f0a674d8a827bd56697ed8dc412 *DESCRIPTION
 a1c3750bba502220097ff63232dfdb58 *NAMESPACE
-6d995d57189295810d77a3f953f0d750 *NEWS.md
+5e9bf0075aed1d826423cd8357cd7c42 *NEWS.md
 979d3ab3067653b9200582eb09ccc4f4 *R/RcppExports.R
 94319756473957e5873606c609d593d7 *R/TLS_scan-data.R
 b2cbf568ee4b4d35c295cb7817387e93 *R/artificial_stand.R
@@ -99,7 +99,7 @@ d9a742bf5a43ec9972072f4978626529 *tests/testthat/test-artificial_stands.R
 52a6cc3c80464566416bd5d4b0462f12 *tests/testthat/test-cartesian_to_polar.R
 96b1acaf06e2ab738ed6d68704b37c0c *tests/testthat/test-circleRANSAC.R
 ad5530a5c544436c82244bf7a2126fc1 *tests/testthat/test-euclidean_distance.R
-421f1a643ecd520b545b935d5b848d18 *tests/testthat/test-filter.R
+b6e963e1bc3ac339e4deb5441768a519 *tests/testthat/test-filter.R
 160eb3179fca3c4dd2825767f3603046 *tests/testthat/test-geometry_features.R
 9c042cc64fdd129ff37e946f0d829c53 *tests/testthat/test-knn.R
 ceddb7475adf3e113f5dd1c3af6c86ad *tests/testthat/test-line_AABB.R
