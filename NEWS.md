@@ -1,3 +1,7 @@
+# rTLS 0.2.5.4
+
+Minor corrections on boolean operands. 
+
 # rTLS 0.2.5.2
 
 Bug on package test
