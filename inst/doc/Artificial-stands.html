@@ -50,7 +50,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -61,7 +61,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -377,8 +377,8 @@ of the files using the <code>...</code> argument passed to
 <p>As an example, here we will use a tree point cloud already embedded
 in <code>rTLS</code>, <code>pc_tree.txt</code>. This file is located in
 the extdata of <code>rTLS</code>, following:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rTLS)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;pc_tree.txt&quot;</span>, <span class="at">package =</span> <span class="st">&quot;rTLS&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(rTLS)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;pc_tree.txt&quot;</span>, <span class="at">package =</span> <span class="st">&quot;rTLS&quot;</span>)</span></code></pre></div>
 <p>The structure of the location vector should be similar than
 <code>path</code> depending on the number and identify of point clouds
 for the future artificial stand. For example, if the user wants a stand
@@ -398,7 +398,7 @@ users can use the argument <code>dimension</code>. This need to be a
 vector of length two defining the width and length of the plot. It is
 expected that the unit scale of the point could files match with the
 unit scale for plot. An example for an hectare plot could be:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plot_size <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>plot_size <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">100</span>)</span></code></pre></div>
 <hr />
 <ol start="3" style="list-style-type: decimal">
 <li>Number of trees and their coordinates.</li>
@@ -415,14 +415,14 @@ coordinates to the trees in the future stands we most use
 provide specific coordinates we should add a <code>data.table</code> of
 two columns and with equal to describing the basal XYZ coordinates of
 the point clouds in the future stand.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of trees</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>trees <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Random coordinates </span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>coor_1 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Predefined coordinates</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>coor_2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">50</span>, <span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">90</span>, <span class="dv">90</span>), <span class="at">Y =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">75</span>, <span class="dv">25</span>, <span class="dv">75</span>, <span class="dv">25</span>, <span class="dv">75</span>, <span class="dv">25</span>, <span class="dv">75</span>, <span class="dv">25</span>, <span class="dv">75</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co">#Number of trees</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>trees <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#Random coordinates </span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>coor_1 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#Predefined coordinates</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>coor_2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">50</span>, <span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">90</span>, <span class="dv">90</span>), <span class="at">Y =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">75</span>, <span class="dv">25</span>, <span class="dv">75</span>, <span class="dv">25</span>, <span class="dv">75</span>, <span class="dv">25</span>, <span class="dv">75</span>, <span class="dv">25</span>, <span class="dv">75</span>))</span></code></pre></div>
 <hr />
 <ol start="3" style="list-style-type: decimal">
 <li>Other arguments</li>
@@ -435,19 +435,19 @@ point cloud. If the users wants a specific angle of rotation in their
 point clouds these need to be defined in the degrees argument using
 vector describing the degrees of rotation. An example of all of this
 could be:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5% of overlaping between crowns</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>overl <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Trees without rotation</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>rota_1 <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Trees with random rotation  </span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>rota_2 <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>degreess_1 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Trees with rotation and specific angles</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>rota_3 <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>degreess_2 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">length.out =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># 5% of overlaping between crowns</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>overl <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co"># Trees without rotation</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>rota_1 <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co"># Trees with random rotation  </span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>rota_2 <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>degreess_1 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co"># Trees with rotation and specific angles</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>rota_3 <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>degreess_2 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="at">length.out =</span> <span class="dv">10</span>)</span></code></pre></div>
 <hr />
 <ol start="4" style="list-style-type: decimal">
 <li>Run artificial stands.</li>
@@ -457,18 +457,18 @@ paths, number of trees, plot size, and tree coordinates it is possible
 to run <code>artifical_stands</code>. Following our example of 10 trees
 using the same point cloud in an hectare plot we should have the
 following:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># A total random artifical stand</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>stand_1 <span class="ot">&lt;-</span> <span class="fu">artificial_stand</span>(path, <span class="at">n.trees =</span> trees, <span class="at">dimension =</span> plot_size, <span class="at">coordinates =</span> coor_1, <span class="at">overlap =</span> overl, <span class="at">sample =</span> <span class="cn">TRUE</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># An artifical stand with defined tree coordinates and random tree rotation </span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>stand_2 <span class="ot">&lt;-</span> <span class="fu">artificial_stand</span>(path, <span class="at">n.trees =</span> trees, <span class="at">dimension =</span> plot_size, <span class="at">coordinates =</span> coor_2, <span class="at">sample =</span> <span class="cn">TRUE</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">rotation =</span> rota_2, <span class="at">degrees =</span> degreess_1)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># An artifical stand with defined tree coordinates and defined tree rotation</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>stand_3 <span class="ot">&lt;-</span> <span class="fu">artificial_stand</span>(path, <span class="at">n.trees =</span> trees, <span class="at">dimension =</span> plot_size, <span class="at">coordinates =</span> coor_2, <span class="at">sample =</span> <span class="cn">TRUE</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">rotation =</span> rota_3, <span class="at">degrees =</span> degreess_2)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># An artifical stand with defined tree coordinates and without tree rotation</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>stand_4 <span class="ot">&lt;-</span> <span class="fu">artificial_stand</span>(path, <span class="at">n.trees =</span> trees, <span class="at">dimension =</span> plot_size, <span class="at">coordinates =</span> coor_2, <span class="at">sample =</span> <span class="cn">TRUE</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">rotation =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co"># A total random artifical stand</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>stand_1 <span class="ot">&lt;-</span> <span class="fu">artificial_stand</span>(path, <span class="at">n.trees =</span> trees, <span class="at">dimension =</span> plot_size, <span class="at">coordinates =</span> coor_1, <span class="at">overlap =</span> overl, <span class="at">sample =</span> <span class="cn">TRUE</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co"># An artifical stand with defined tree coordinates and random tree rotation </span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>stand_2 <span class="ot">&lt;-</span> <span class="fu">artificial_stand</span>(path, <span class="at">n.trees =</span> trees, <span class="at">dimension =</span> plot_size, <span class="at">coordinates =</span> coor_2, <span class="at">sample =</span> <span class="cn">TRUE</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">rotation =</span> rota_2, <span class="at">degrees =</span> degreess_1)</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co"># An artifical stand with defined tree coordinates and defined tree rotation</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>stand_3 <span class="ot">&lt;-</span> <span class="fu">artificial_stand</span>(path, <span class="at">n.trees =</span> trees, <span class="at">dimension =</span> plot_size, <span class="at">coordinates =</span> coor_2, <span class="at">sample =</span> <span class="cn">TRUE</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">rotation =</span> rota_3, <span class="at">degrees =</span> degreess_2)</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co"># An artifical stand with defined tree coordinates and without tree rotation</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>stand_4 <span class="ot">&lt;-</span> <span class="fu">artificial_stand</span>(path, <span class="at">n.trees =</span> trees, <span class="at">dimension =</span> plot_size, <span class="at">coordinates =</span> coor_2, <span class="at">sample =</span> <span class="cn">TRUE</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">rotation =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>The resulting output of this function is a list that contains:</p>
 <ul>
 <li>Stand: basic information about the artificial stand (e.i. number of

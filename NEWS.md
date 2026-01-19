@@ -1,6 +1,6 @@
-# rTLS 0.2.5.4
+# rTLS 0.2.6.1
 
-Minor corrections on boolean operands. 
+We move from sp to sf package.
 
 # rTLS 0.2.5.2
 

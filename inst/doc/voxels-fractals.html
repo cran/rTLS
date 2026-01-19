@@ -50,7 +50,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -61,7 +61,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -377,12 +377,12 @@ embedded in <code>rTLS</code>, <code>pc_tree</code>. This point cloud
 was created from a group of scans of a tree. It has a coarse resolution
 of 0.05 m for TLS standards in order to integrate it as an example into
 the package. The file can be load following:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rTLS)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(pc_tree)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Visualize the point cloud</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>rgl<span class="sc">::</span><span class="fu">plot3d</span>(pc_tree)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(rTLS)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">data</span>(pc_tree)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#Visualize the point cloud</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>rgl<span class="sc">::</span><span class="fu">plot3d</span>(pc_tree)</span></code></pre></div>
 <hr />
 <ol start="2" style="list-style-type: decimal">
 <li>Run <code>voxel_counting</code></li>
@@ -402,17 +402,17 @@ or if this is null, we can define the number of scales to use by
 selects the maximum voxel size based on the largest range of XYZ. Since
 the resolution of the point cloud is 0.05 m we can use this as a value
 value of minimum voxel size. This can be performed following:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>fractals <span class="ot">&lt;-</span> <span class="fu">voxels_counting</span>(pc_tree, <span class="at">min.size =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>fractals <span class="ot">&lt;-</span> <span class="fu">voxels_counting</span>(pc_tree, <span class="at">min.size =</span> <span class="fl">0.05</span>)</span></code></pre></div>
 <p>Other ways to select the <code>min.size</code> is estimating the
 minimum distance between points. This can be done also using
 ‘min_distance’ function also from <code>rTLS</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Regular processing</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>low_size <span class="ot">&lt;-</span> <span class="fu">min_distance</span>(pc_tree)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#or using parallel processing</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>low_size <span class="ot">&lt;-</span> <span class="fu">min_distance</span>(pc_tree, <span class="at">threads =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#Regular processing</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>low_size <span class="ot">&lt;-</span> <span class="fu">min_distance</span>(pc_tree)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#or using parallel processing</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>low_size <span class="ot">&lt;-</span> <span class="fu">min_distance</span>(pc_tree, <span class="at">threads =</span> <span class="dv">4</span>)</span></code></pre></div>
 <hr />
 <ol start="3" style="list-style-type: decimal">
 <li>Estimation of the fractal geometry by voxel counting</li>
@@ -423,8 +423,8 @@ fitting a log-log regression between N (<code>fractals$N_voxels</code>)
 and S (<code>fractals$Voxel.size^3</code>). In practice, the
 Minkowski–Bouligand dimension is estimated using 1/S in order to obtain
 positive slopes. This can be done following:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dimention <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log10</span>(N_voxels) <span class="sc">~</span> <span class="fu">log10</span>(<span class="dv">1</span><span class="sc">/</span>(Edge.X<span class="sc">*</span>Edge.Y<span class="sc">*</span>Edge.Z)), <span class="at">data =</span> fractals)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>dimention <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log10</span>(N_voxels) <span class="sc">~</span> <span class="fu">log10</span>(<span class="dv">1</span><span class="sc">/</span>(Edge.X<span class="sc">*</span>Edge.Y<span class="sc">*</span>Edge.Z)), <span class="at">data =</span> fractals)</span></code></pre></div>
 <p>The coefficients from this relationship represent the fractal
 dimension (d<sub>MB</sub>;<code>dimention$coefficients[2]</code>) and
 the intercept (intercept<sub>MB</sub>;,
